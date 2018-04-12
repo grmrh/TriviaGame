@@ -16,6 +16,7 @@ var ticker = timeSpanForEachQuestion;
 var questionNumber = 0;
 var askQuestion; 
 var askNextQuestion;
+var timer;
 
 function remainingTimeCounter() {
     ticker = ticker - tickerInterval;
@@ -44,18 +45,22 @@ function nextQuestion() {
     ticker = timeSpanForEachQuestion;
 
     questionNumber++;
+    console.log(questionNumber);
+    displayQuestion(questionNumber)
+    displayAnswerChoices(questionNumber);
 
     if (questionNumber >= qaList.length) {
-        clearTimeout(askNextQuestion);       
+        clearInterval(timer);
+        clearTimeout(askNextQuestion);  
+        clearInterval(askQuestion);
+        displayTriviaStat();     
     }
 
     askNextQuestion = setTimeout(function() {
-        console.log(questionNumber);
-        displayQuestion(questionNumber)
-        displayAnswerChoices(questionNumber);
+        
         // display ticker
         ticker = timeSpanForEachQuestion;
-        setInterval(remainingTimeCounter, tickerInterval);
+        timer = setInterval(remainingTimeCounter, tickerInterval);
     }, timeSpanForEachQuestion);
 
     
@@ -68,6 +73,6 @@ $(document).ready(function() {
     displayRemainingTime(timeSpanForEachQuestion);
     // reset the remainingTimeCounter
     
+    //askQuestion = setTimeout(nextQuestion, timeSpanForEachQuestion* qaList.length);
     askQuestion = setInterval(nextQuestion, timeSpanForEachQuestion);
-    displayTriviaStat();
 });

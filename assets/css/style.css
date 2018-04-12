@@ -1,0 +1,23 @@
+.time-ticker, .remaining-time, .card-text {
+    text-align: center;
+}
+
+.card {
+    min-width: 100%;
+}
+
+.card-header {
+    font-size: 1.5rem;
+    color: #B58900
+}
+
+.card-title {
+    color: black;
+}
+
+.form-check-label {
+    font-size: 1.5rem;
+}
+.form-check-input {
+    margin-top: 0.75rem;
+}
