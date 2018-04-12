@@ -2,13 +2,37 @@
  * remaining time counter for each question. The time span for ecah question is 5 sec.
  */
 const qaList = [
-    {Q: 'Q1',
-     A: 'A1'}, 
-    {Q: 'Q2', 
-     A: 'A2'}, 
-    {Q: 'Q3',
-     A: 'A3'}
+    {Q: 'What is the official language of Greenland?',
+     C: ['English','Hindi', 'Greenlandic', 'Portuguese' ],
+     A: 2}, 
+    {Q: 'If you were in the city of Turin, what country would you be in?', 
+     C: ['USA', 'Russia', 'Scotland', 'Italy'], 
+     A: 3}, 
+    {Q: "What is the capital city of Canada's Yukon territory?",
+     C: ['Winnepeg', 'Whitehorse','District of British Columbia', 'Edmonton' ], 
+     A: 1},
+     {Q: 'Macau is an autonomous territory belonging to which country?',
+      C: ['China', 'USA', 'Japan', 'Cambodia'],
+     A: 0},
+     {Q: 'What are the colors that appear on the flag of France?',
+      C: ['Blue, white & red', 'Black, blue & white', 'Green, blue & whilte', 'Red, blue and white'],
+     A: 0 }, 
+     {Q: 'Which sea separates the East African coast and the Saudi Arabian peninsula?',
+     C: ['Yellow sea', 'Black sea', 'Blue sea', 'Red sea'],
+     A: 3}
 ]
+
+function GetTriviaQuestions() {
+    var option={
+        url: 'https://opentdb.com/api.php?amount=10&category=22&type=multiple', 
+        method: 'GET'
+    }
+
+    $.ajax(option)
+        .then(function(response) {
+            console.log(response);
+        })
+}
 
 const numberOfQ = 3;
 const qTimer = 5000;
