@@ -16,3 +16,20 @@ for (i = 0; i < 100; i++) {
         };
     }(i), 3000 * i);
 }
+
+// goot site for setTimeout https://www.sitepoint.com/jquery-settimeout-function-examples/
+// radon number stuff
+function greet(greeting){
+    console.log(greeting);
+  }
+  
+  function getRandom(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
+  }
+  
+  var greetings = ["Hello", "Bonjour", "Guten Tag"],
+      randomGreeting = getRandom(greetings);
+  
+  setTimeout(function(){
+    greet(randomGreeting);
+  }, 1000);
